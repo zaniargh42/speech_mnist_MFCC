@@ -8,6 +8,7 @@ from tensorflow import keras
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv1D, Conv2D, MaxPooling2D, MaxPooling1D, Dense, Flatten, Dropout, SeparableConv1D
 import matplotlib.pyplot as plt
+import librosa
 
 # file addresses 
 
@@ -22,7 +23,6 @@ print(len(addresses),len(label))
 # feature exteraction
 data=[]
 for i in addresses:
-  print(e)
   sound, sample_rate = librosa.load(i,sr=4800)
   stft = np.abs(librosa.stft(sound))  
   mfccs = np.mean(librosa.feature.mfcc(y=sound, sr=sample_rate, n_mfcc=128),axis=1)
